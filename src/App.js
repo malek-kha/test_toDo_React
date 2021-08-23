@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import {Route, withRouter} from 'react-router-dom';
+import AllListToDo from './components/allListToDo';
+import ListToDo from './components/listToDo';
+import CreateToDo from './components/createToDo';
+import DeleteToDo from './components/createToDo';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Route exact path='/' component={AllListToDo} />
+        <Route exact path='/find_create' component={ListToDo} />
+        <Route exact path='/todo/create' component={CreateToDo} />
+        <Route exact path='/todo/delete' component={DeleteToDo} />
       </header>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
